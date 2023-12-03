@@ -25,7 +25,7 @@ public class SistemaAcademicoUTPL_2 {
             // y si no quieren mas solo se muestra los resultados individuales del estudiante
         do {
             // Definición de nombres disponibles para seleccionar aleatoriamente
-            String[] nombres = {"Juan", "Maria", "Carlos", "Laura", "Pedro", "Ana", "Diego", "Sofia", "Nicolay", "Andres", "Daniel", "Simone",
+            String[] nombres = {"Juan", "Maria", "Carlos", "Laura", "Pedro", "Ana", "Diego", "Sofia", "Nicolay", "Andres", "Daniel",
                 "Adrian", "Sebastian", "Alisson", "Paula", "Nayeli", "Lady", "Pablo", "Cristian", "James", "Emily", "Dayanna", "Doris"}; //Aplique la misma que las materias (Si tienes mas nombres pasas) 
             // Seleccionar aleatoriamente un nombre de la lista
             String nombre = nombres[rand.nextInt(nombres.length)];
