@@ -1,10 +1,10 @@
 package repasobimestral;
 import java.util.Scanner;
-
+import java.util.Random;
 public class AdivinaNumero2 {
     
     public static void main(String[] args) {
-        int numAdivinar, numIngresado, intentosUsados = 0, intentos = 10;
+        int numAdivinar, numIngresado, intentosUsados = 0, intentos = 10, pistaAleatoria;
         Scanner tecla = new Scanner(System.in);
         numAdivinar = (int) (Math.random() * 100 + 1);
         System.out.println("BIENVENIDO A ADIVINAR EL NUMERO 2.0 \nINSTRUCCIONES: ");
@@ -29,45 +29,36 @@ public class AdivinaNumero2 {
                 // Si el jugador quiere una pista
                 if (quierePista.equalsIgnoreCase("Si")) {
                     System.out.println("Se te resta un intento por pedir pista");
-                    intentos--; // Descuenta un intento por pedir una pista
-
-                    boolean pistaMostrada = false; // Bandera para verificar si se mostró una pista
-
+                    intentos--;
                     // Genera un número aleatorio para seleccionar una pista al azar
-                    int pistaAleatoria = (int) (Math.random() * 8) + 1;
+                    Random random = new Random();
+                    pistaAleatoria = random.nextInt(1 , 8);
 
                     // Verifica las características del número a adivinar y muestra una pista aleatoria
                     if (numAdivinar > numIngresado && pistaAleatoria == 1) {
                         System.out.println("PISTA: Intenta con un numero mayor.   <---");
-                        pistaMostrada = true;
                     }
                     if (numAdivinar < numIngresado && pistaAleatoria == 2) {
                         System.out.println("PISTA: Intenta con un numero menor.   <---");
-                        pistaMostrada = true;
                     }
                     if (numAdivinar % 2 == 0 && pistaAleatoria == 3) {
                         System.out.println("PISTA: El numero es par.   <---");
-                        pistaMostrada = true;
                     }
                     if (numAdivinar % 2 != 0 && pistaAleatoria == 4) {
                         System.out.println("PISTA: El numero es par.   <---");
-                        pistaMostrada = true;
                     }
                     if ((numAdivinar == 1 || numAdivinar == 2 || numAdivinar == 3 || numAdivinar == 5 || numAdivinar == 8 || numAdivinar == 13 || numAdivinar == 21 || numAdivinar == 34 || numAdivinar == 55 || numAdivinar == 89) && pistaAleatoria == 5) {
                         System.out.println("PISTA: El numero pertenece a la secuencia fibonacci   <---");
-                        pistaMostrada = true;
                     }
                     if (numAdivinar % 5 == 0 && pistaAleatoria == 6) {
                         System.out.println("PISTA: El numero es multiplo de 5  <---");
-                        pistaMostrada = true;
                     }
                     if (numAdivinar % 3 == 0 && pistaAleatoria == 7) {
                         System.out.println("PISTA: El numero es multiplo de 3  <---");
-                        pistaMostrada = true;
                     }
                     else {
                         System.out.println("*Elige cuidadosamente el proximo numero*");
-                        intentos--; // Descuenta un intento por rechazar la pista
+                        intentos--; // Descuenta un intento por aceptar una pista
                     }
                 } else if (quierePista.equalsIgnoreCase("No")) {
                     System.out.println("*Elige cuidadosamente el proximo numero*");
@@ -77,8 +68,7 @@ public class AdivinaNumero2 {
         }
         // Si se agotan los intentos sin adivinar el número
         if (intentos == 0) {
-            System.out.println("Lo siento, has agotado tus intentos.");
-            System.out.println("El numero era: " + numAdivinar);
+            System.out.println("Lo siento, has agotado tus intentos.El numero era: " + numAdivinar);
         }
     }
 }
