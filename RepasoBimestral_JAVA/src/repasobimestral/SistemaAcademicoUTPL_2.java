@@ -6,16 +6,13 @@ public class SistemaAcademicoUTPL_2 {
     
     public static void main(String[] args) {
         //Declaracion de variables
-        int totalEstudiantes, estudiantesAprobados, estudiantesReprobados, cedula;
+        int totalEstudiantes, estudiantesAprobados = 0, estudiantesReprobados = 0, cedula, notas;
         double ACD, APE, AA, notaACD, notaAPE, notaAA;
         // Importación de las clases Random y Scanner para generar números aleatorios y leer la entrada del usuario, respectivamente
-        Random rand = new Random(); // Creación de un objeto Random para generar números aleatorios
-        estudiantesAprobados = 0; // Inicialización de una variable para contar estudiantes aprobados ya que inicialmente empezamos con 0 datos
-        estudiantesReprobados = 0; // Inicialización de una variable para contar estudiantes reprobados ya que inicialmente empezamos con 0 datos 
+        Random rand = new Random(); // Creación de un objeto Random para generar números aleatorio
         Scanner tecla = new Scanner(System.in); // Creación de un objeto Scanner para recibir entrada del usuario
 
         System.out.println("---------->GESTION--DE--CALIFICACIONES--UTPL<----------"); //Carpinteria para que quede bonito :D
-        System.out.println("o--Ingrese la materia a cruzar: "); // + Carpinteria :D
         // Definición de las materias disponibles para seleccionar aleatoriamente
         String[] materias = {"Fundamentos Matematicos", "Fundamentos Computacionales", "Introduccion a la Programacion",
                 "Estructuras Discretas", "Computacion y Sociedad", "Humanismo"}; //Aqui es como una caja donde guardo los nombres y luego el sistema agarra una sola materia, al azar
@@ -23,13 +20,12 @@ public class SistemaAcademicoUTPL_2 {
         String materia = materias[rand.nextInt(materias.length)];
         // Puse la materia afuera del ciclo porque para mi no tiene sentido preguntar varias veces la materia
         
-        char notas; //Esto si me ayude de google, el char es como un double, int que guarda datos de 16 bits
         // Inicio del bucle para ingresar estudiantes
             // Use el do-while porque como sabes siempre se repite una vez y luego pregunta la condicion, entonces aja es mejor que ya este ingresado un estudiante y luego se pregunta si quieren mas
             // y si no quieren mas solo se muestra los resultados individuales del estudiante
         do {
             // Definición de nombres disponibles para seleccionar aleatoriamente
-            String[] nombres = {"Juan", "Maria", "Carlos", "Laura", "Pedro", "Ana", "Diego", "Sofia", "Nicolay", "Andres", "Daniel", "Simone",
+            String[] nombres = {"Juan", "Maria", "Carlos", "Laura", "Pedro", "Ana", "Diego", "Sofia", "Nicolay", "Andres", "Daniel",
                 "Adrian", "Sebastian", "Alisson", "Paula", "Nayeli", "Lady", "Pablo", "Cristian", "James", "Emily", "Dayanna", "Doris"}; //Aplique la misma que las materias (Si tienes mas nombres pasas) 
             // Seleccionar aleatoriamente un nombre de la lista
             String nombre = nombres[rand.nextInt(nombres.length)];
@@ -59,10 +55,10 @@ public class SistemaAcademicoUTPL_2 {
             System.out.println("NOMBRE DEL ESTUDIANTE: " + nombre);
             System.out.println("CEDULA: " + cedula);
             System.out.println("MATERIA: " + materia);
-            System.out.println("Nota ACD convertida: " + notaACD);
-            System.out.println("Nota APE convertida: " + notaAPE);
-            System.out.println("Nota AA convertida: " + notaAA);
-            System.out.println("PROMEDIO: " + promedio);
+            System.out.println("Nota ACD (3.5/10): " + notaACD);
+            System.out.println("Nota APE (3.5/10): " + notaAPE);
+            System.out.println("Nota AA (3/10): " + notaAA);
+            System.out.println("Promedio: " + promedio);
             System.out.println("-----------------------"); //+ Carpinteria 
 
             // Verificar si el estudiante aprobó o debe rendir un examen de recuperación
